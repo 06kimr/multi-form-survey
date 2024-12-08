@@ -13,15 +13,21 @@ interface DropdownProps<T> {
   placeholder?: string;
   options: DropdownOption<T>[];
   onChange?: (value: T) => void;
+  defaultValue?: T;
 }
 
 export default function Dropdown<T>({
   options,
   onChange,
   placeholder,
+  defaultValue,
 }: DropdownProps<T>) {
   const [opened, setOpened] = useState(false);
-  const [selected, setSelected] = useState(-1);
+  const [selected, setSelected] = useState(
+    defaultValue
+      ? options.findIndex((option) => option.value === defaultValue)
+      : -1
+  );
 
   const open = useCallback(() => setOpened(true), []);
   const close = useCallback(() => setOpened(false), []);
@@ -88,7 +94,7 @@ function DropdownMenu() {
   const containerRef = useOutsideClick(close);
   return opened ? (
     <div
-      className="absolute left-0 flex flex-col bg-white border border-gray-300 top-62 rounded-10 min-w-197"
+      className="absolute left-0 z-10 flex flex-col bg-white border border-gray-300 top-62 rounded-10 min-w-197"
       ref={containerRef as RefObject<HTMLDivElement>}
     >
       {options.map((option, index) => (
