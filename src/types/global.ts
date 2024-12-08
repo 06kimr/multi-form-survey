@@ -1,3 +1,3 @@
-export type CN<T = NonNullable<unknown>> = T & {
+export type Cn<T = NonNullable<unknown>> = T & {
   className?: string;
 };
