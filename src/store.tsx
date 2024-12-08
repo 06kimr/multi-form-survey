@@ -7,7 +7,7 @@ class SurveyStore {
   focusedSectionId: number | null;
 
   constructor() {
-    makeAutoObservable(this);
+    makeAutoObservable(this, {}, { autoBind: true });
     this.sections = [new Section()];
     this.focusedSectionId = this.sections[0].id;
   }
@@ -16,6 +16,10 @@ class SurveyStore {
     const section = new Section();
     this.sections.push(section);
     this.focusedSectionId = section.id;
+  }
+
+  setFocusedSectionId(id: number) {
+    this.focusedSectionId = id;
   }
 
   addQuestion() {

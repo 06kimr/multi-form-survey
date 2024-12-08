@@ -6,14 +6,22 @@ import SectionTitleEditor from "./SectionTitleEditor";
 
 interface Props {
   section: Section;
+  onChangeFocus: (id: number) => void;
+  capTitle: string;
 }
 
-const SectionEditor = observer(function SectionEditor({ section }: Props) {
-  const surveyStore = useSurveyStore();
+const SectionEditor = observer(function SectionEditor({
+  section,
+  onChangeFocus,
+  capTitle,
+}: Props) {
+  const handleClickContainer = () => {
+    onChangeFocus(section.id);
+  };
 
   return (
-    <div className="[&>*]:mb-24">
-      <SectionTitleEditor section={section} capTitle="2개 중 1섹션" />
+    <div className="[&>*]:mb-24" onClick={handleClickContainer}>
+      <SectionTitleEditor section={section} capTitle={capTitle} />
       {section.questions.map((question) => (
         <QuestionEditor
           key={question.id}

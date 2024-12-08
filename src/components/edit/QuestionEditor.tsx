@@ -22,7 +22,7 @@ const QuestionEditor = observer(function QuestionEditor({
   onDelete,
 }: Props) {
   return (
-    <Panel>
+    <Panel className="focus-within:border-l-main border-l-transparent border-l-10">
       <PanelHeader className="flex mb-25">
         <Input className="flex-1 mr-30" />
         <QuestionTypeEditor type={question.type} onChange={question.setType} />
