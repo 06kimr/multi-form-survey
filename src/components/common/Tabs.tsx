@@ -1,5 +1,5 @@
-import { createContext, PropsWithChildren, useContext, useState } from "react";
 import cn from "classnames";
+import { createContext, PropsWithChildren, useContext, useState } from "react";
 
 export default function Tabs({ children }: PropsWithChildren) {
   const [activeTab, setActiveTab] = useState(0);
@@ -17,7 +17,7 @@ const TabContext = createContext({
 });
 
 export function TabList({ children }: PropsWithChildren) {
-  return <div className="flex gap-x-20 justify-center">{children}</div>;
+  return <div className="flex justify-center gap-x-20">{children}</div>;
 }
 
 export function Tab({ children, index }: PropsWithChildren<{ index: number }>) {

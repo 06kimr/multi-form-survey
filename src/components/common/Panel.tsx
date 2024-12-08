@@ -1,26 +1,28 @@
 import { PropsWithChildren } from "react";
+import { CN } from "../../types/global";
+import cn from 'classnames'
 
-export default function Panel({ children }: PropsWithChildren) {
+export default function Panel({ children, className }: PropsWithChildren<CN>) {
   return (
-    <div className="flex flex-col p-20 bg-white pt-26 rounded-10">
+    <div className={cn("flex flex-col p-20 bg-white pt-26 rounded-10", className)}>
       {children}
     </div>
   );
 }
 
-export function PanelHeader({ children }: PropsWithChildren) {
-  return <div>{children}</div>;
+export function PanelHeader({ children, className }: PropsWithChildren<CN>) {
+  return <div className={className}>{children}</div>;
 }
 
-export function PanelBody({ children }: PropsWithChildren) {
-  return <div>{children}</div>;
+export function PanelBody({ children, className }: PropsWithChildren<CN>) {
+  return <div className={className}>{children}</div>;
 }
 
-export function PanelFooter({ children }: PropsWithChildren) {
+export function PanelFooter({ children, className }: PropsWithChildren<CN>) {
   return (
     <>
       <hr className="mb-20 border-gray-100" />
-      <div>{children}</div>
+      <div className={className}>{children}</div>
     </>
   );
 }
