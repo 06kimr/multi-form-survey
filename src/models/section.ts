@@ -22,7 +22,7 @@ export default class Section {
       description: "",
     }
   ) {
-    makeAutoObservable(this);
+    makeAutoObservable(this, {}, {autoBind: true});
     this.id = data.id;
     this.title = data.title;
     this.questions = data.questions;
