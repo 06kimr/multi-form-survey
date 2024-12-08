@@ -6,6 +6,7 @@ import Tabs, {
   TabPanel,
   TabPanels,
 } from "./components/common/Tabs";
+import Panel, { PanelBody, PanelCap, PanelFooter, PanelHeader } from "./components/common/Panel";
 
 function App() {
   return (
@@ -16,7 +17,14 @@ function App() {
           <Tab index={1}>tab2</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel index={0}>panel1</TabPanel>
+          <TabPanel index={0}>
+            <PanelCap>cap</PanelCap>
+            <Panel>
+              <PanelHeader>header</PanelHeader>
+              <PanelBody>body</PanelBody>
+              <PanelFooter>footer</PanelFooter>
+            </Panel>
+          </TabPanel>
           <TabPanel index={1}>panel2</TabPanel>
         </TabPanels>
       </Tabs>
