@@ -1,7 +1,6 @@
 import { observer } from "mobx-react-lite";
-import { useSurveyStore } from "../../store";
-import QuestionEditor from "./QuestionEditor";
 import Section from "../../models/section";
+import QuestionEditor from "./QuestionEditor";
 import SectionTitleEditor from "./SectionTitleEditor";
 
 interface Props {
