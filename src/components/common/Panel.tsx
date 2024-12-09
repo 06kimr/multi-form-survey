@@ -21,7 +21,7 @@ export function PanelBody({ children, className }: PropsWithChildren<Cn>) {
 export function PanelFooter({ children, className }: PropsWithChildren<Cn>) {
   return (
     <>
-      <hr className="mb-20 border-gray-100" />
+      <hr className="border-gray-100 " />
       <div className={className}>{children}</div>
     </>
   );

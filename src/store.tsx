@@ -4,6 +4,7 @@ import Section, { SectionData } from "./models/section";
 import callAPI from "./utils/api";
 
 class SurveyStore {
+  emailCollected: boolean;
   sections: Section[];
   focusedSectionId: number | null;
 
@@ -11,6 +12,7 @@ class SurveyStore {
     makeAutoObservable(this, {}, { autoBind: true });
     this.sections = [new Section()];
     this.focusedSectionId = this.sections[0].id;
+    this.emailCollected = false;
   }
 
   addSection() {
@@ -34,11 +36,12 @@ class SurveyStore {
   }
 
   fetchSurvey(id: number) {
-    callAPI<{ sections: SectionData[] }>(`/surveys/${id}`).then(
-      ({ sections }) => {
-        this.sections = sections.map((section) => new Section(section));
-      }
-    );
+    callAPI<{ sections: SectionData[]; emailCollected: boolean }>(
+      `/surveys/${id}`
+    ).then(({ sections, emailCollected }) => {
+      this.sections = sections.map((section) => new Section(section));
+      this.emailCollected = emailCollected ?? false;
+    });
   }
 }
 

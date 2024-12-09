@@ -34,7 +34,7 @@ const QuestionEditor = observer(function QuestionEditor({
       <PanelBody>
         <QuestionBodyEditor type={question.type} />
       </PanelBody>
-      <PanelFooter className="flex justify-end h-24 gap-x-24">
+      <PanelFooter className="flex justify-end h-24 mt-20 gap-x-24">
         <button onClick={() => onCopy(question.id)}>
           <CopyIcon />
         </button>
