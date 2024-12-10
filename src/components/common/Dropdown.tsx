@@ -24,7 +24,7 @@ export default function Dropdown<T>({
 }: DropdownProps<T>) {
   const [opened, setOpened] = useState(false);
   const [selected, setSelected] = useState(
-    defaultValue !== undefined
+    defaultValue !== undefined  
       ? options.findIndex((option) => option.value === defaultValue)
       : -1
   );

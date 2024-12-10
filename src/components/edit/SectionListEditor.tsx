@@ -3,7 +3,7 @@ import { useSurveyStore } from "../../store";
 import EditorMenu from "./EditorMenu";
 import SectionEditor from "./SectionEditor";
 
-const SectionEditorList = observer(function SectionEditorList() {
+const SectionListEditor = observer(function SectionEditorList() {
   const surveyStore = useSurveyStore();
   return (
     <div className="relative">
@@ -21,4 +21,4 @@ const SectionEditorList = observer(function SectionEditorList() {
     </div>
   );
 });
-export default SectionEditorList;
+export default SectionListEditor;

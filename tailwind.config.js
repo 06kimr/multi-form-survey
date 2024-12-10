@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import utilities from "./tailwind/utilities";
 
 import colors from "./tailwind/colors";
 
@@ -28,5 +29,5 @@ export default {
     },
   },
 
-  plugins: [],
+  plugins: [utilities],
 };
