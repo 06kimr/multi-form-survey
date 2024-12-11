@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { QuestionType } from "../types/app";
 
-type QuestionData = {
+export type QuestionData = {
   id: number;
   title: string;
   type: QuestionType;

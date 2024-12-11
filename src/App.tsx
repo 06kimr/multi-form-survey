@@ -6,6 +6,7 @@ import CreatePage from "./pages/CreatePage";
 import EditPage from "./pages/EditPage";
 import { SurveyStoreProvider } from "./store";
 import Formpage from "./pages/FormPage";
+import CompletePage from "./pages/CompletePage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="edit" element={<EditPage />} />
               <Route path="responses" element={<div>응답2s</div>} />
             </Route>
+            <Route path="/surveys/:surveyId/complete" element={<CompletePage />} />
           </Routes>
         </SurveyStoreProvider>
       </MainLayout>
